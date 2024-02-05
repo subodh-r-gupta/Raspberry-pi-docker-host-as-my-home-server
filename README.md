@@ -137,10 +137,11 @@ after a short while update ubuntu using -
 
 ## 3 - Installing docker
 
-# Setting up docker host with containers on ubuntu docker host vm
----
-- Download the docker installer script from docker.com
+Now Lets install docker on this host.
 
+Steps -
+
+- Download the docker installer script from docker.com
 > curl -fsSL https://get.docker.com -o get-docker.sh
 
 - Execute the docker install script - 
