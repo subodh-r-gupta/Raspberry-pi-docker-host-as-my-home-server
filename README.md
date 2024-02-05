@@ -6,7 +6,7 @@ So I got a new raspberry pi 4 and I wanted it to turn in to a full fledged home 
 
 ## Which services do I want to run on it?
 
-The basic idea is to have a home server which can provide the following services-
+I need a home server which can provide the following services-
 
 ### Security Services
 
