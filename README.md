@@ -64,7 +64,7 @@ In my previous tests on raspberry pi, jellyfin was maxing out CPU usage, So i wi
 
 | Service | Description |
 | ----------- | ----------- |
-| samba |  for sharing documents within the LAN  |
+| samba |  for storing and sharing important personal documents within the LAN  |
 
 I have a spare 500 GB HDD which I will use as network attached storage for storing all my data.
 
