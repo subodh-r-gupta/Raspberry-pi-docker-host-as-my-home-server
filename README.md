@@ -2,7 +2,7 @@
 my notes of creating a homelab on raspberry pi
 ---
 
-So I got a new raspberry pi 4 and I wanted it to turn in to a full fleged home server. 
+So I got a new raspberry pi 4 and I wanted it to turn in to a full fledged home server. 
 
 The basic idea is to have a home server which can do the following -
 
