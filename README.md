@@ -2,7 +2,8 @@
 
 
 I got a new raspberry pi 4 and I want to build a low cost and low power consuming home server on it. 
-Here we go again...
+
+So,Here we go again...
 
 ## Which services do I want to run on it?
 
