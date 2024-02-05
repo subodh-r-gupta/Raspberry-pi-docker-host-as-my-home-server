@@ -210,4 +210,5 @@ I would use ansible to automate the server setup as much as possible so that i c
 
 [how to install docker on ubuntu 2204 articles](https://www.linuxtechi.com/install-use-docker-on-ubuntu/)
 
+[setting up pivpn](https://pimylifeup.com/raspberry-pi-vpn-server/)
 [Setting up x in docker container]()
