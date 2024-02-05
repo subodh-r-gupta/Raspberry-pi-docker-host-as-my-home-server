@@ -178,6 +178,13 @@ Lets install server management services to begin with.
 ### 4.3 Setup dashy as container
 
 
+Next up, lets install network wide services first -
+
+### 4.4 Setup pihole as container
+
+### 4.3 Setup nginx as container
+
+
 
 
 
