@@ -167,6 +167,18 @@ Steps -
 
 ##  4 - Setting up services
 
+Lets install server management services to begin with.
+
+### 4.1 Installing cockpit
+
+> sudo apt install cockpit 
+
+### 4.2 Setup portainer as container
+
+
+
+
+
 ---
 
 
