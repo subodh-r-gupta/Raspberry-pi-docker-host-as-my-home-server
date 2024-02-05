@@ -113,6 +113,24 @@ But I have decided to choose Ubuntu server 2204 LTS as the base OS for this serv
 
 This will be my docker host.
 
+Steps -
+
+    - download the 64-bit image but do not unzip the image
+    - flash the image using raspberry pi imager
+    - plug the pi into your router and find it's ip
+    - ssh is enabled by default so you should be able to ssh into it
+        user: ubuntu
+        pass: ubuntu
+
+Upon first login ubuntu will ask you to change the password, do so then relog it over shh. 
+
+On first boot ubuntu will expand the file system. 
+
+after a short while update ubuntu using - 
+
+> sudo apt update
+> sudo apt upgrade.
+
 
 ## 3 - Installing docker
 
@@ -122,3 +140,9 @@ This will be my docker host.
 
 
 
+# REFERENCES ---
+
+[Installing ubuntu server on raspberry pi 4](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview)
+[Installing docker on ubuntu server]()
+
+[Setting up x in docker container]()
