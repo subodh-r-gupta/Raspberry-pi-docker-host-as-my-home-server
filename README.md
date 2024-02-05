@@ -14,7 +14,7 @@ I need a home server which can provide the following services-
 | pivpn | for accessing services over internet when i am travelling with my laptop  |
 | cloudflare ddns | for providing me a dynamic dns server to connect my vpn clients to  |
 | linux firewall | for blocking intrusions  |
-
+| nginx proxy manager | all containers will be placed behind a proxy to reduce attack surface |
 
 
 ### Privacy Services
