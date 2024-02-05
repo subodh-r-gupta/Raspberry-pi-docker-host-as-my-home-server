@@ -2,7 +2,7 @@
 my notes of creating a homelab on raspberry pi
 ---
 
-So I got a new raspberry pi 4 and I wanted it to turn in to a full fledged home server. 
+So I got a new raspberry pi 4 and I wanted to build a home server on it. 
 
 ## Which services do I want to run on it?
 
