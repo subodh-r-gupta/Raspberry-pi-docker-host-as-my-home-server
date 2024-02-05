@@ -182,7 +182,7 @@ Next up, lets install network wide services first -
 
 ### 4.4 Setup pihole as container
 
-### 4.3 Setup nginx as container
+### 4.5 Setup nginx as container
 
 
 
