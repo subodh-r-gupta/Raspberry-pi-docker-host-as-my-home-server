@@ -15,7 +15,9 @@ I need a home server which can provide the following services-
 | cloudflare ddns | for providing me a dynamic dns server to connect my vpn clients to  |
 | linux firewall | for blocking intrusions  |
 | nginx proxy manager | all containers will be placed behind a proxy to reduce attack surface |
+| traefik | all containers will be placed behind a proxy to reduce attack surface |
 
+My previous experience with traefik was not good, the documentation was a mess to figure out, so this time i am going to have nginx proxy manager and traefik both. I will test and choose one.
 
 ### Privacy Services
 
