@@ -99,6 +99,21 @@ I am a cheapskate, I do not want to pay for hosting charges every year.
 
 ## 2 - Installing Ubuntu Server 2204 LTS on raspberry pi 4
 
+I am using Ubuntu and Red Hat Linux at work on daily basis. 
+
+But I have decided to choose Ubuntu server 2204 LTS as the base OS for this server because...
+
+- they have the official LTS builds available for RPI
+- ease of use.
+
+
+This will be my docker host.
+
+
+## 3 - Installing docker
+
+
+### - Setting up services
 
 
 
