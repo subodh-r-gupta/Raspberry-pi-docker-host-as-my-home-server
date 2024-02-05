@@ -175,6 +175,8 @@ Lets install server management services to begin with.
 
 ### 4.2 Setup portainer as container
 
+### 4.3 Setup dashy as container
+
 
 
 
