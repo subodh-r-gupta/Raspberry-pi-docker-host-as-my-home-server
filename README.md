@@ -29,13 +29,41 @@ I am going to have pihole and adguard both for side by side comparison. I have b
 
 ### Server Management Services
 
+| Service | Description |
+| ----------- | ----------- |
+| dashy |  for a nice looking server home page with links to all the services  |
+| cockpit |  for a nice server manager gui  |
+
+Yes, I know the for server management a CLI must be used but sometimes a GUI is good to cheat through.
+
 ### Entertainment Services
+| Service | Description |
+| ----------- | ----------- |
+| jellyfin |  for sharing music and videos to my laptop and tv  |
+| minidlna |  for sharing music and videos to my laptop and tv  |
+
+In my previous tests on raspberry pi, jellyfin was maxing out CPU usage, So i will have a lighweight alternative as minidlna on docker host to fall back if it happens again.
 
 ### File Sharing Services
 
+| Service | Description |
+| ----------- | ----------- |
+| samba |  for sharing files within the LAN  |
+
+I have a spare 500 GB HDD which I will use as network attached storage for storing all my data.
+
 ### Office Services
+| Service | Description |
+| ----------- | ----------- |
+| nextcloud |  for office apps, document sharing and meetings with friends and family over the internet |
 
 ### Website hosting services
+
+| Service | Description |
+| ----------- | ----------- |
+| wordpress |  for selfhosting my own website |
+
+I am a cheapskate, I do not want to pay for hosting charges every year.
 
 
 
