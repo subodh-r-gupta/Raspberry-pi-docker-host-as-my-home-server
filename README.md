@@ -137,6 +137,28 @@ after a short while update ubuntu using -
 
 ## 3 - Installing docker
 
+# Setting up docker host with containers on ubuntu docker host vm
+---
+- Download the docker installer script from docker.com
+
+> curl -fsSL https://get.docker.com -o get-docker.sh
+
+- Execute the docker install script - 
+
+> sudo sh get-docker.sh
+
+- Add a regular user to docker group, so that you dont need to use sudo with docker commands
+
+>sudo usermod -aG docker $USER
+
+- reboot
+
+> sudo reboot
+
+- Test the installation
+
+  > docker run hello-world
+
 
 
 
@@ -161,6 +183,9 @@ I would use ansible to automate the server setup as much as possible so that i c
 # REFERENCES ---
 
 [Installing ubuntu server on raspberry pi 4](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview)
-[Installing docker on ubuntu server]()
+
+[docker official documentation](https://docs.docker.com/engine/install/ubuntu/)
+
+[how to install docker on ubuntu 2204 articles](https://www.linuxtechi.com/install-use-docker-on-ubuntu/)
 
 [Setting up x in docker container]()
