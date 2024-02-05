@@ -13,11 +13,14 @@ I need a home server which can provide the following services-
 | ----------- | ----------- |
 | pivpn | for accessing services over internet when i am travelling with my laptop  |
 | cloudflare ddns | for providing me a dynamic dns server to connect my vpn clients to  |
+| duckdns| for providing me a dynamic dns server to connect my vpn clients to  |
 | linux firewall | for blocking intrusions  |
 | nginx proxy manager | all containers will be placed behind a proxy to reduce attack surface |
 | traefik | all containers will be placed behind a proxy to reduce attack surface |
 
 My previous experience with traefik was not good, the documentation was a mess to figure out, so this time i am going to have nginx proxy manager and traefik both. I will test and choose one.
+
+Similarly i have used duckdns in past, it worked well for me. But i have heard good things about cloudfare so I would like to try both of them and then decide on one of them.
 
 ### Privacy Services
 
@@ -36,6 +39,7 @@ I am going to have pihole and adguard both for side by side comparison. I have b
 | ----------- | ----------- |
 | dashy |  for a nice looking server home page with links to all the services  |
 | cockpit |  for a nice server manager gui  |
+| portainer | for easy docker container management using web gui |
 
 Yes, I know the for server management a CLI must be used but sometimes a GUI is good to cheat through.
 
@@ -46,7 +50,7 @@ Yes, I know the for server management a CLI must be used but sometimes a GUI is 
 | netdata |  for server and network monitoring and alerts  |
 | zabbix |  for server and network monitoring and alerts  |
 | glances | for a quick view of docker container health |
-|Librenms| for server and network monitoring alerts
+| Librenms | for server and network monitoring alerts
 
 This server needs to be monitored 24x7 and i should be able to get alerts when something fails or an attack happens. I would like to compare netdata, zabbix and librenms, so I will configure them all.Once i choose one over other, It will be cleaned up.
 
@@ -105,7 +109,7 @@ But I have decided to choose Ubuntu server 2204 LTS as the base OS for this serv
 
 - they have the official LTS builds available for RPI
 - ease of use.
-
+- no money to buy support
 
 This will be my docker host.
 
