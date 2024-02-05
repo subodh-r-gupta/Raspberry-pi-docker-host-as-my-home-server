@@ -129,10 +129,10 @@ Upon first login ubuntu will ask you to change the password, do so then relog it
 On first boot ubuntu will expand the file system. 
 
 after a short while update ubuntu using - 
-
+```
 > sudo apt update
 > sudo apt upgrade.
-
+```
 ---
 
 ## 3 - Installing docker
