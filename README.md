@@ -165,7 +165,7 @@ Steps -
 
 ---
 
-### - Setting up services
+##  4 - Setting up services
 
 ---
 
