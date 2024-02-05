@@ -131,14 +131,30 @@ after a short while update ubuntu using -
 > sudo apt update
 > sudo apt upgrade.
 
+---
 
 ## 3 - Installing docker
 
 
+
+
+---
+
 ### - Setting up services
 
+---
 
 
+# Testing
+
+
+---
+
+
+# Automating the server setup
+I would use ansible to automate the server setup as much as possible so that i can re-build it easily.
+
+---
 
 # REFERENCES ---
 
