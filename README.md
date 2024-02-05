@@ -1,5 +1,4 @@
 # My homelab on Raspberry pi 4
-my notes of creating a homelab on raspberry pi
 ---
 
 So I got a new raspberry pi 4 and I want to build a low cost and low power consuming home server on it. 
