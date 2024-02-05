@@ -22,7 +22,7 @@ I need a home server which can provide the following services-
 
 My previous experience with traefik was not good, the documentation was a mess to figure out, so this time i am going to have nginx proxy manager and traefik both. I will test and choose one.
 
-Similarly i have used duckdns in past, it worked well for me. But i have heard good things about cloudfare so I would like to try both of them and then decide on one of them.
+Similarly i have used duckdns in past, it worked well for me. But i have heard good things about cloudflare so I would like to try both of them and then decide on one of them.
 
 ### Privacy Services
 
