@@ -13,6 +13,8 @@ I need a home server which can provide the following services-
 | ----------- | ----------- |
 | pivpn | for accessing services over internet when i am travelling with my laptop  |
 | cloudflare ddns | for providing me a dynamic dns server to connect my vpn clients to  |
+| linux firewall | for blocking intrusions  |
+
 
 
 ### Privacy Services
@@ -35,11 +37,24 @@ I am going to have pihole and adguard both for side by side comparison. I have b
 
 Yes, I know the for server management a CLI must be used but sometimes a GUI is good to cheat through.
 
+### Server Monitoring and Alert services
+
+| Service | Description |
+| ----------- | ----------- |
+| netdata |  for server and network monitoring and alerts  |
+| zabbix |  for server and network monitoring and alerts  |
+| glances | for a quick view of docker container health |
+|Librenms| for server and network monitoring alerts
+
+This server needs to be monitored 24x7 and i should be able to get alerts when something fails or an attack happens. I would like to compare netdata, zabbix and librenms, so I will configure them all.Once i choose one over other, It will be cleaned up.
+
+
 ### Entertainment Services
 | Service | Description |
 | ----------- | ----------- |
 | jellyfin |  for sharing music and videos to my laptop and tv  |
 | minidlna |  for sharing music and videos to my laptop and tv  |
+
 
 In my previous tests on raspberry pi, jellyfin was maxing out CPU usage, So i will have a lighweight alternative as minidlna on docker host to fall back if it happens again.
 
