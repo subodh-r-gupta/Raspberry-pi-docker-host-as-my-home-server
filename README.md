@@ -18,6 +18,15 @@ I need a home server which can provide the following services-
 
 ### Privacy Services
 
+| Service | Description |
+| ----------- | ----------- |
+| pihole |  for Network-Wide Ad Blocking  |
+| adguard |  for Network-Wide Ad Blocking  |
+
+I am going to have pihole and adguard both for side by side comparison. I have been using pihole for years, but heard good things about adguards. So why not have then both and test which one works better for me?
+
+
+
 ### Server Management Services
 
 ### Entertainment Services
