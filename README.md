@@ -52,8 +52,10 @@ This server needs to be monitored 24x7 and i should be able to get alerts when s
 ### Entertainment Services
 | Service | Description |
 | ----------- | ----------- |
-| jellyfin |  for sharing music and videos to my laptop and tv  |
-| minidlna |  for sharing music and videos to my laptop and tv  |
+| jellyfin |  for sharing music and video library to my laptop and tv  |
+| minidlna |  for sharing music and video library to my laptop and tv  |
+| calibre and calibre web |  for sharing comics and books library to my laptop and tv  |
+| photoprism | for sharing photos to my laptop and tv |
 
 
 In my previous tests on raspberry pi, jellyfin was maxing out CPU usage, So i will have a lighweight alternative as minidlna on docker host to fall back if it happens again.
@@ -62,7 +64,7 @@ In my previous tests on raspberry pi, jellyfin was maxing out CPU usage, So i wi
 
 | Service | Description |
 | ----------- | ----------- |
-| samba |  for sharing files within the LAN  |
+| samba |  for sharing documents within the LAN  |
 
 I have a spare 500 GB HDD which I will use as network attached storage for storing all my data.
 
