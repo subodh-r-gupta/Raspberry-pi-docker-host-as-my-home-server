@@ -89,13 +89,13 @@ I am a cheapskate, I do not want to pay for hosting charges every year.
 
 ## 1 - Inventory -
 
-Raspberry Pi 4B 8 gb
-Micro SD Card
-Heat Sink
-Power Supply
-Rpi4 Case With Fan
-Micro HDMI to HDMI cable
-External HDD
+- Raspberry Pi 4B 8 gb
+- Micro SD Card
+- Heat Sink
+- Power Supply
+- Rpi4 Case With Fan
+- Micro HDMI to HDMI cable
+- External HDD
 
 ## 2 - Installing Ubuntu Server 2204 LTS on raspberry pi 4
 
