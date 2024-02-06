@@ -173,6 +173,10 @@ Lets install server management services to begin with.
 
 > sudo apt install cockpit 
 
+### 4.1 Setup a private network
+
+> docker create network  
+
 ### 4.2 Setup portainer as container
 
 ### 4.3 Setup dashy as container
