@@ -199,7 +199,7 @@ run
 
 > docker compose up -d
 
-visit https://<dockerhostip>:9443 for portainer web gui
+visit https://docker-host-ip:9443 for portainer web gui
 
 ### 4.3 Setup dashy as container
 
@@ -235,7 +235,7 @@ run
 
 > docker compose up -d
 
-visit http://serverip:81 for a nginx proxy manager admin portal.
+visit http://docker-host-ip:81 for a nginx proxy manager admin portal.
 
 
 
