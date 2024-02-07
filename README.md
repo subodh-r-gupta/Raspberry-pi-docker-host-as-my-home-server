@@ -177,7 +177,7 @@ Lets install server management services to begin with.
 
 > docker create network  proxy-net
 
-### 4.2 Setup portainer as container
+### 4.2 Setup portainer container
 
 ```
 
@@ -201,14 +201,14 @@ run
 
 visit https://docker-host-ip:9443 for portainer web gui
 
-### 4.3 Setup dashy as container
+### 4.3 Setup dashy container
 
 
 Next up, lets install network wide security services first -
 
-### 4.4 Setup pihole as container
+### 4.4 Setup pihole container
 
-### 4.5 Setup nginx as container
+### 4.5 Setup nginx proxy manager container
 
 ```
 version: "3"
