@@ -175,7 +175,7 @@ Lets install server management services to begin with.
 
 ### 4.1 Setup a private network
 
-> docker create network  
+> docker create network  proxy-net
 
 ### 4.2 Setup portainer as container
 
@@ -195,6 +195,11 @@ services:
         - 9443:9443
 
 ```
+run 
+
+> docker compose up -d
+
+visit https://yourserverip:9443 for portainer web gui
 
 ### 4.3 Setup dashy as container
 
@@ -205,7 +210,32 @@ Next up, lets install network wide security services first -
 
 ### 4.5 Setup nginx as container
 
+```
+version: "3"
+---
+services:
+ app:
+  image: 'jc21/nginx-proxy-manager:latest'
+  container_name: 'nginx-proxy-manager'
+  environment:
+    PUID: 1001
+    PGID: 1001
+  restart: unless-stopped
+  ports:
+    - '80:80'
+    - '81:81'
+    - '443:443'
+  volumes:
+    - ../../storage/nginx-proxy-manager-data/data:/data
+    - ../../storage/nginx-proxy-manager-data/letsencrypt:/etc/letsencrypt
 
+```
+
+run
+
+> docker compose up -d
+
+visit http://serverip:81 for a nginx proxy manager admin portal.
 
 
 
