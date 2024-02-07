@@ -210,8 +210,15 @@ Next up, lets install network wide security services first -
 
 I need pi hole for 2 reasons -
     
-    1 - Network wide ad blocking
-    2 - a locally hosted dns server for my internal websites/apps
+1 - Network wide ad blocking
+2 - a locally hosted dns server for my internal websites/apps
+
+Therefore, pi hole container must be connected directly to home network and should have its own ip address.
+
+
+```
+```
+
     
 ### 4.5 Setup nginx proxy manager container
 
@@ -267,4 +274,9 @@ I would use ansible to automate the server setup as much as possible so that i c
 [how to install docker on ubuntu 2204 articles](https://www.linuxtechi.com/install-use-docker-on-ubuntu/)
 
 [setting up pivpn](https://pimylifeup.com/raspberry-pi-vpn-server/)
-[Setting up x in docker container]()
+
+[Setting up portainer in docker container](https://bobcares.com/blog/install-portainer-docker-compose/)
+
+[Setting up nginx proxy manager in docker container](https://nginxproxymanager.com/setup/)
+
+
