@@ -179,6 +179,23 @@ Lets install server management services to begin with.
 
 ### 4.2 Setup portainer as container
 
+```
+
+version: "3"
+services:
+    portainer:
+      image: portainer/portainer-ce:latest
+      container_name: portainer
+      restart: unless-stopped
+      privileged: true
+      volumes:
+        - ../../storage/portainer-data:/data
+        - /var/run/docker.sock:/var/run/docker.sock
+      ports:
+        - 9443:9443
+
+```
+
 ### 4.3 Setup dashy as container
 
 
