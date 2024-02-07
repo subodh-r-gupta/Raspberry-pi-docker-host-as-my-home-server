@@ -282,4 +282,4 @@ I would use ansible to automate the server setup as much as possible so that i c
 [nginx proxy tutorial](https://www.bogotobogo.com/DevOps/Docker/Docker-Compose-Nginx-Reverse-Proxy-Multiple-Containers.php)
 
 [setting up pihole in docker container](https://github.com/pi-hole/docker-pi-hole/#running-pi-hole-docker)
-
+[pihole docker macvlan configuration](https://blog.ivansmirnov.name/set-up-pihole-using-docker-macvlan-network/)
