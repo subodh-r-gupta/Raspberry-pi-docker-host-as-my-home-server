@@ -199,7 +199,7 @@ run
 
 > docker compose up -d
 
-visit https://yourserverip:9443 for portainer web gui
+visit https://<dockerhostip>:9443 for portainer web gui
 
 ### 4.3 Setup dashy as container
 
