@@ -279,4 +279,5 @@ I would use ansible to automate the server setup as much as possible so that i c
 
 [Setting up nginx proxy manager in docker container](https://nginxproxymanager.com/setup/)
 
+[nginx proxy tutorial](https://www.bogotobogo.com/DevOps/Docker/Docker-Compose-Nginx-Reverse-Proxy-Multiple-Containers.php)
 
