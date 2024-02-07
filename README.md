@@ -208,6 +208,11 @@ Next up, lets install network wide security services first -
 
 ### 4.4 Setup pihole container
 
+I need pi hole for 2 reasons -
+    
+    1 - Network wide ad blocking
+    2 - a locally hosted dns server for my internal websites/apps
+    
 ### 4.5 Setup nginx proxy manager container
 
 ```
