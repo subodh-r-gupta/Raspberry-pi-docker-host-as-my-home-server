@@ -29,7 +29,7 @@ Similarly i have used duckdns in past, it worked well for me. But i have heard g
 | Service | Description |
 | ----------- | ----------- |
 | pihole |  for Network-Wide Ad Blocking  |
-| adguard |  for Network-Wide Ad Blocking  |
+| adguard |  for Network-Wide Ad Blocking  TBD in version 2 of this guide|
 
 I am going to have pihole and adguard both for side by side comparison. I have been using pihole for years, but heard good things about adguards. So why not have then both and test which one works better for me?
 
@@ -49,10 +49,10 @@ Yes, I know the for server management a CLI must be used but sometimes a GUI is 
 
 | Service | Description |
 | ----------- | ----------- |
-| netdata |  for server and network monitoring and alerts  |
-| zabbix |  for server and network monitoring and alerts  |
+| netdata |  for server and network monitoring and alerts   |
+| zabbix |  for server and network monitoring and alerts  TBD in version 2 of this guide|
 | glances | for a quick view of docker container health |
-| Librenms | for server and network monitoring alerts
+| Librenms | for server and network monitoring alerts TBD in version 2 of this guide |
 
 This server needs to be monitored 24x7 and i should be able to get alerts when something fails or an attack happens. I would like to compare netdata, zabbix and librenms, so I will configure them all.Once i choose one over other, It will be cleaned up.
 
