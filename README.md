@@ -118,8 +118,11 @@ This will be my docker host.
 Steps -
 
 1- download the 64-bit image from https://ubuntu.com/download/raspberry-pi/thank-you?version=22.04.3&architecture=server-arm64+raspi
+
 2- flash the image using raspberry pi imager
+
 3- plug the pi into your router and find it's ip
+
 4- ssh is enabled by default so you should be able to ssh into it
      user: ubuntu
     pass: ubuntu
