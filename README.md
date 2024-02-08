@@ -402,3 +402,6 @@ I would use ansible to automate the server setup as much as possible so that i c
 
 [setting up pihole in docker container on ubuntu server](https://pimylifeup.com/pi-hole-docker/)
 
+[setting up homarr in docker container](https://homarr.dev/docs/getting-started/installation/)
+[setting up glances](https://github.com/nicolargo/glances/blob/develop/docs/docker.rst)
+
