@@ -213,8 +213,16 @@ I need pi hole for 2 reasons -
 1 - Network wide ad blocking
 2 - a locally hosted dns server for my internal websites/apps
 
-Therefore, pi hole container must be connected directly to home network and should have its own ip address.
+Therefore, pi hole container must be connected directly to home network and should have its own ip address if I plan to use it as dhcp server as well. This would be good idea if i was runnig on ethernet but unfortunately docker macvlan networks do not play well with wireless interfaces. I tried to investigate it and do not think it is worth it. 
 
+finally I have deployed it as regular docker container but i had to do the following to get it working
+
+- changed the pihole admin portal port from 80 to 8080 because ngnix proxy manager is already using port 80, so to avoid port conflict errors pi hole web ui need to run on 8080.
+- port 53 is used by pihole but it is conflicting with systemd resolved service on ubuntu, So to make pihole work i had to stop and disable the systemd resolved service and edit the resolve.conf manually.
+- I think the net side effect would be that if pohole goes down local name resolution might now work on this server anymore.
+
+  
+  
 
 ```
 ```
@@ -281,5 +289,5 @@ I would use ansible to automate the server setup as much as possible so that i c
 
 [nginx proxy tutorial](https://www.bogotobogo.com/DevOps/Docker/Docker-Compose-Nginx-Reverse-Proxy-Multiple-Containers.php)
 
-[setting up pihole in docker container](https://github.com/pi-hole/docker-pi-hole/#running-pi-hole-docker)
-[pihole docker macvlan configuration](https://blog.ivansmirnov.name/set-up-pihole-using-docker-macvlan-network/)
+[setting up pihole in docker container on ubuntu server](https://pimylifeup.com/pi-hole-docker/)
+
