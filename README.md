@@ -306,6 +306,36 @@ reboot the system and then start the pi hole container.
 
 navigate to http://docker-host-ip:8080 for pihole web ui.
 
+
+### setup glance container
+docker compose file -
+
+```
+version: '3'
+
+services:
+  glances:
+    image: nicolargo/glances:latest
+    container_name: 'glances'
+    restart: always
+    environment:
+      - "GLANCES_OPT= -w"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # comment the below line if you dont want glances to display host OS detail instead of container's
+      - /etc/os-release:/etc/os-release:ro
+    #pid: host
+    ports:
+      - 8081:61208
+
+```
+
+then run 
+
+> docker compose up -d
+
+navigate to http://docker-host-ip:8081 for glances web ui
+
 ### 4.5 Setup nginx proxy manager container
 
 ```
