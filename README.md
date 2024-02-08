@@ -310,7 +310,7 @@ reboot the system and then start the pi hole container.
 navigate to http://docker-host-ip:8080 for pihole web ui.
 
 
-### setup glance container
+### setup glances container
 docker compose file -
 
 ```
