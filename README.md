@@ -277,7 +277,9 @@ replce it with -
 > nameserver 1.1.1.1
 
 reboot the system and then start the pi hole container.
-    
+
+navigate to http://docker-host-ip:8080 for pihole web ui.
+
 ### 4.5 Setup nginx proxy manager container
 
 ```
