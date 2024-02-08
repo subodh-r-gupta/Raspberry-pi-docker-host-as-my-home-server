@@ -254,7 +254,29 @@ services:
 
 
 ```
+before starting the container -
 
+stop resolved
+
+> sudo systemctl stop systemd-resolve
+
+disable resolved
+
+> sudo systemctl disable systemd-resolve
+
+edit the resolve.conf
+
+> sudo nano /etc/resolv.conf
+
+find the following line in it 
+
+> nameserver 127.0.0.53
+
+replce it with -
+
+> nameserver 1.1.1.1
+
+reboot the system and then start the pi hole container.
     
 ### 4.5 Setup nginx proxy manager container
 
