@@ -39,7 +39,7 @@ I am going to have pihole and adguard both for side by side comparison. I have b
 
 | Service | Description |
 | ----------- | ----------- |
-| dashy |  for a nice looking server home page with links to all the services  |
+| homarr |  for a nice looking server home page with links to all the services  |
 | cockpit |  for a nice server manager gui  |
 | portainer | for easy docker container management using web gui |
 
@@ -201,8 +201,34 @@ run
 
 visit https://docker-host-ip:9443 for portainer web gui
 
-### 4.3 Setup dashy container
+### 4.3 Setup homarr container
+docker compose file -
 
+```
+version: '3'
+---
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    environment:
+      PUID: 1001
+      PGUID: 1001
+    restart: unless-stopped
+    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - ../../storage/homarr-data/configs:/app/data/configs
+      - ../../storage/homarr-data/icons:/app/public/icons
+      - ../../storage/homarr-data/data:/data
+    ports:
+      - '8082:7575'
+
+```
+Then run 
+
+> docker compose up -d
+
+navigate to http://docker-host-ip:8082 for web ui
 
 Next up, lets install network wide security services first -
 
