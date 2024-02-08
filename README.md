@@ -210,8 +210,8 @@ Next up, lets install network wide security services first -
 
 I need pi hole for 2 reasons -
     
-1 - Network wide ad blocking
-2 - a locally hosted dns server for my internal websites/apps
+- Network wide ad blocking
+- a locally hosted dns server for my internal websites/apps
 
 Therefore, pi hole container must be connected directly to home network and should have its own ip address if I plan to use it as dhcp server as well. This would be good idea if i was runnig on ethernet but unfortunately docker macvlan networks do not play well with wireless interfaces. I tried to investigate it and do not think it is worth it. 
 
@@ -220,11 +220,39 @@ finally I have deployed it as regular docker container but i had to do the follo
 - changed the pihole admin portal port from 80 to 8080 because ngnix proxy manager is already using port 80, so to avoid port conflict errors pi hole web ui need to run on 8080.
 - port 53 is used by pihole but it is conflicting with systemd resolved service on ubuntu, So to make pihole work i had to stop and disable the systemd resolved service and edit the resolve.conf manually.
 - I think the net side effect would be that if pohole goes down local name resolution might now work on this server anymore.
-
-  
+ 
   
 
 ```
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "8080:80/tcp"
+    environment:
+      TZ: 'America/Chicago'
+      WEBPASSWORD: 'Changeme'
+      PUID: 1001
+      PGUID: 1001
+      VIRTUAL_HOST: 'pi.hole'
+    volumes:
+      - '../../storage/pihole-data/etc-pihole:/etc/pihole'
+      - '../../storage/pihole-data/etc-dnsmasq.d:/etc/dnsmasq.d'
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+      - 8.8.8.8
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+
 ```
 
     
