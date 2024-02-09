@@ -373,6 +373,49 @@ visit http://docker-host-ip:81 for a nginx proxy manager admin portal.
 
 ---
 
+### 4.6 setup filebrowser container
+
+filebrowser provides a light weight web ui which i prefer to use for sharing files and folders to home users.
+
+docker compose 
+
+```
+version: '3'
+---
+services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    environment:
+      PUID: 1001
+      PGUI: 1001
+    ports:
+      - 8085:80
+    volumes:
+      - '../../storage/filebrowser-data/shared-storage:/srv'
+      - '../../storage/filebrowser-data/filebrowser.db:/db:database.db'
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+
+
+```
+Now create a file called filebrowser.db in the filebrowser-data folder, before starting the container. Otherwise it will fail.
+
+> touch filebrowser.db
+
+then start the container -
+
+> docker compose up -d
+
+nagivate to http://docker-host-ip:8085 for the web ui.
+
+### 4.7 setup nextcloud docker container
+
+
+
+
 
 # Testing & Troubleshooting
 
