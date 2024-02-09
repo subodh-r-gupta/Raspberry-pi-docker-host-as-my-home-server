@@ -511,4 +511,6 @@ I would use ansible to automate the server setup as much as possible so that i c
 [setting up zabbix in docker container](https://medium.com/@oachuy/easy-way-of-monitoring-your-raspberry-pi-nas-and-containers-with-zabbix-bbc123a7975f)
 
 [setting up nextcloud in container](https://medium.com/@oachuy/install-your-own-cloud-storage-with-nexcloud-in-raspberry-pi-4-fd29f9039283)
+[nextcloud awesome compose](https://github.com/docker/awesome-compose/blob/master/nextcloud-redis-mariadb/compose.yaml)
+
 
