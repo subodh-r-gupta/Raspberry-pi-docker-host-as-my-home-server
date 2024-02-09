@@ -413,8 +413,67 @@ nagivate to http://docker-host-ip:8085 for the web ui.
 
 ### 4.7 setup nextcloud docker container
 
+docker compose file
 
+```
+version: '3'
+---
+services:
+  nc:
+    image: nextcloud:apache
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8086:80
+    volumes:
+      - '../../storage/nextcloud-data/nc-web-data:/var/www/html'
+    networks:
+      - redisnet
+      - dbnet
+    environment:
+      - REDIS_HOST=redis
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+  redis:
+    image: redis:alpine
+    container_name: redis-nc
+    restart: always
+    networks:
+      - redisnet
+    expose:
+      - 6379
+  db:
+    image: mariadb:10.5
+    container_name: nc-mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - '../../storage/nextcloud-data/nc-db-data:/var/lib/mysql'
+    networks:
+      - dbnet
+    environment:
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_ROOT_PASSWORD=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+    expose:
+      - 3306
+volumes:
+  db_data:
+  nc_data:
+networks:
+  dbnet:
+  redisnet:
 
+```
+
+start the container with
+
+> docker compose up -d
+
+navigate to http://docker-host-ip:8086 to configure nextcloud using web gui
 
 
 # Testing & Troubleshooting
