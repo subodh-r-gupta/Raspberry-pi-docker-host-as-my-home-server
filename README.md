@@ -403,5 +403,9 @@ I would use ansible to automate the server setup as much as possible so that i c
 [setting up pihole in docker container on ubuntu server](https://pimylifeup.com/pi-hole-docker/)
 
 [setting up homarr in docker container](https://homarr.dev/docs/getting-started/installation/)
-[setting up glances](https://github.com/nicolargo/glances/blob/develop/docs/docker.rst)
+[setting up glances in docker container](https://github.com/nicolargo/glances/blob/develop/docs/docker.rst)
+
+[setting up zabbix in docker container](https://medium.com/@oachuy/easy-way-of-monitoring-your-raspberry-pi-nas-and-containers-with-zabbix-bbc123a7975f)
+
+[setting up nextcloud in container](https://medium.com/@oachuy/install-your-own-cloud-storage-with-nexcloud-in-raspberry-pi-4-fd29f9039283)
 
