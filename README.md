@@ -475,6 +475,117 @@ start the container with
 
 navigate to http://docker-host-ip:8086 to configure nextcloud using web gui
 
+### setup qbittorrent container
+
+I wanted to use the official qbittorrent-nox image but during the trial run I found that it has sed permission issue on tmp folder, After few hours of googling, I could not find a fix except few hints about changing sed version which uses a different system call. So insted of wasting anymore time, I decided to use linuxserver.io's qbittorrent image.This image just works!
+
+docker-compose.yml
+
+```
+version: '3'
+---
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8083
+    volumes:
+      - ../../storage/qbittorrent-data/q-config:/config
+      - ../../storage/qbittorrent-data/q-downloads:/downloads
+    ports:
+      - 8083:8083
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
+
+
+```
+Then 
+
+> docker compose up
+
+On the terminal qbittorrent prints a temporarry password, copy it.
+
+```
+
+
+Log viewer settings
+Auto-refresh logs
+Wrap lines
+Display timestamps
+Fetch
+Search
+Lines
+Actions
+
+      
+
+[migrations] started
+
+[migrations] no migrations found
+
+───────────────────────────────────────
+
+      ██╗     ███████╗██╗ ██████╗
+
+      ██║     ██╔════╝██║██╔═══██╗
+
+      ██║     ███████╗██║██║   ██║
+
+      ██║     ╚════██║██║██║   ██║
+
+      ███████╗███████║██║╚██████╔╝
+
+      ╚══════╝╚══════╝╚═╝ ╚═════╝
+
+   Brought to you by linuxserver.io
+
+───────────────────────────────────────
+
+To support LSIO projects visit:
+
+https://www.linuxserver.io/donate/
+
+───────────────────────────────────────
+
+GID/UID
+
+───────────────────────────────────────
+
+User UID:    1001
+
+User GID:    1001
+
+───────────────────────────────────────
+
+[custom-init] No custom files found, skipping...
+
+WebUI will be started shortly after internal preparations. Please wait...
+
+******** Information ********
+
+To control qBittorrent, access the WebUI at: http://localhost:8083
+
+The WebUI administrator username is: admin
+
+The WebUI administrator password was not set. A temporary password is provided for this session: e28GbmU6W
+
+You should set your own password in program preferences.
+
+Connection to localhost (127.0.0.1) 8083 port [tcp/*] succeeded!
+
+[ls.io-init] done.
+
+      
+
+```
+
+login to web ui using this password at http://docker-host-ip:8083
+Change the password and configure the qbittorrent settings as per your liking.
 
 # Testing & Troubleshooting
 
