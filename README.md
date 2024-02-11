@@ -479,6 +479,8 @@ navigate to http://docker-host-ip:8086 to configure nextcloud using web gui
 
 I wanted to use the official qbittorrent-nox image but during the trial run I found that it has sed permission issue on tmp folder, After few hours of googling, I could not find a fix except few hints about changing sed version which uses a different system call. So insted of wasting anymore time, I decided to use linuxserver.io's qbittorrent image.This image just works!
 
+Notice that in this image the webui port and exposed port on host must be the same, so if you decide to change container port the you must change host port as well.
+
 docker-compose.yml
 
 ```
@@ -612,4 +614,6 @@ I would use ansible to automate the server setup as much as possible so that i c
 [setting up nextcloud in container](https://medium.com/@oachuy/install-your-own-cloud-storage-with-nexcloud-in-raspberry-pi-4-fd29f9039283)
 [nextcloud awesome compose](https://github.com/docker/awesome-compose/blob/master/nextcloud-redis-mariadb/compose.yaml)
 
+[setting up qbittorrent in docker container 1](https://github.com/linuxserver/docker-qbittorrent)
+[Setting up qbitorrent in docker conatiner 2](https://pimylifeup.com/docker-qbittorrent/)
 
