@@ -512,18 +512,6 @@ On the terminal qbittorrent prints a temporarry password, copy it.
 
 ```
 
-
-Log viewer settings
-Auto-refresh logs
-Wrap lines
-Display timestamps
-Fetch
-Search
-Lines
-Actions
-
-      
-
 [migrations] started
 
 [migrations] no migrations found
