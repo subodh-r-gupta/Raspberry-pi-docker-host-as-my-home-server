@@ -807,6 +807,15 @@ after that run the compose stack with
 
 Then navigate to http://docker-host-ip:8000 to login and configure librenms.
 
+
+### Setting up arr container stack so that we can sail the high seas with ease...
+
+
+
+
+
+
+
 # Testing & Troubleshooting
 
 
@@ -846,6 +855,13 @@ I would use ansible to automate the server setup as much as possible so that i c
 
 [setting up qbittorrent in docker container 1](https://github.com/linuxserver/docker-qbittorrent)
 [Setting up qbitorrent in docker conatiner 2](https://pimylifeup.com/docker-qbittorrent/)
+
+[setting up arr stack 1](https://academy.pointtosource.com/containers/sonarr-radarr-prowlarr/)
+[setting up arr stack 2](https://www.rapidseedbox.com/blog/ultimate-guide-to-sonarr)
+[setting up arr stack 3](https://www.rapidseedbox.com/blog/guide-to-radarr)
+[setting up arr stack 4](https://www.rapidseedbox.com/blog/prowlarr-guide)
+
+
 
 [Setting up librenms in docker container 1](https://github.com/librenms/docker/tree/master/examples/compose)
 [Setting up librenms in docker container 2](https://www.packetswitch.co.uk/how-to-install-librenms-as-a-docker-container/)
