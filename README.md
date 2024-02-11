@@ -577,6 +577,236 @@ Connection to localhost (127.0.0.1) 8083 port [tcp/*] succeeded!
 login to web ui using this password at http://docker-host-ip:8083
 Change the password and configure the qbittorrent settings as per your liking.
 
+### Setting up librenms
+
+librenms has great documentation and a sample docker compose file on their github repo. Its easy to follow as compared to zabbix.
+
+docker compose file
+
+```
+version: '3'
+---
+
+name: librenms
+
+services:
+  db:
+    image: mariadb:10.5
+    container_name: librenms_db
+    command:
+      - "mysqld"
+      - "--innodb-file-per-table=1"
+      - "--lower-case-table-names=0"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    volumes:
+      - "../../storage/librenms-data/librenms-db-data:/var/lib/mysql"
+    environment:
+      - "TZ=${TZ}"
+      - "MYSQL_ALLOW_EMPTY_PASSWORD=yes"
+      - "MYSQL_DATABASE=${MYSQL_DATABASE}"
+      - "MYSQL_USER=${MYSQL_USER}"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+    restart: always
+
+  redis:
+    image: redis:5.0-alpine
+    container_name: librenms_redis
+    environment:
+      - "TZ=${TZ}"
+    restart: always
+
+  msmtpd:
+    image: crazymax/msmtpd:latest
+    container_name: librenms_msmtpd
+    env_file:
+      - "./.msmtpd.env"
+    restart: always
+
+  librenms:
+    image: librenms/librenms:latest
+    container_name: librenms
+    hostname: librenms
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    ports:
+      - target: 8000
+        published: 8000
+        protocol: tcp
+    depends_on:
+      - db
+      - redis
+      - msmtpd
+    volumes:
+      - "../../storage/librenms-data/librenms-app-data:/data"
+    env_file:
+      - "./.librenms.env"
+    environment:
+      - "TZ=${TZ}"
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "DB_HOST=db"
+      - "DB_NAME=${MYSQL_DATABASE}"
+      - "DB_USER=${MYSQL_USER}"
+      - "DB_PASSWORD=${MYSQL_PASSWORD}"
+      - "DB_TIMEOUT=60"
+    restart: always
+
+  dispatcher:
+    image: librenms/librenms:latest
+    container_name: librenms_dispatcher
+    hostname: librenms-dispatcher
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - librenms
+      - redis
+    volumes:
+      - "../../storage/librenms-data/librenms-app-data:/data"
+    env_file:
+      - "./.librenms.env"
+    environment:
+      - "TZ=${TZ}"
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "DB_HOST=db"
+      - "DB_NAME=${MYSQL_DATABASE}"
+      - "DB_USER=${MYSQL_USER}"
+      - "DB_PASSWORD=${MYSQL_PASSWORD}"
+      - "DB_TIMEOUT=60"
+      - "DISPATCHER_NODE_ID=dispatcher1"
+      - "SIDECAR_DISPATCHER=1"
+    restart: always
+
+  syslogng:
+    image: librenms/librenms:latest
+    container_name: librenms_syslogng
+    hostname: librenms-syslogng
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - librenms
+      - redis
+    ports:
+      - target: 514
+        published: 514
+        protocol: tcp
+      - target: 514
+        published: 514
+        protocol: udp
+    volumes:
+      - "../../storage/librenms-data/librenms-app-data:/data"
+    env_file:
+      - "./.librenms.env"
+    environment:
+      - "TZ=${TZ}"
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "DB_HOST=db"
+      - "DB_NAME=${MYSQL_DATABASE}"
+      - "DB_USER=${MYSQL_USER}"
+      - "DB_PASSWORD=${MYSQL_PASSWORD}"
+      - "DB_TIMEOUT=60"
+      - "SIDECAR_SYSLOGNG=1"
+    restart: always
+
+  snmptrapd:
+    image: librenms/librenms:latest
+    container_name: librenms_snmptrapd
+    hostname: librenms-snmptrapd
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - librenms
+      - redis
+    ports:
+      - target: 162
+        published: 162
+        protocol: tcp
+      - target: 162
+        published: 162
+        protocol: udp
+    volumes:
+      - "../../storage/librenms-data/librenms-app-data:/data"
+    env_file:
+      - "./.librenms.env"
+    environment:
+      - "TZ=${TZ}"
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "DB_HOST=db"
+      - "DB_NAME=${MYSQL_DATABASE}"
+      - "DB_USER=${MYSQL_USER}"
+      - "DB_PASSWORD=${MYSQL_PASSWORD}"
+      - "DB_TIMEOUT=60"
+      - "SIDECAR_SNMPTRAPD=1"
+    restart: always
+
+```
+Then create follwing environment files for our compose stack.
+
+.env file
+
+```
+TZ=Europe/Paris
+PUID=1001
+PGID=1001
+
+MYSQL_DATABASE=librenms
+MYSQL_USER=librenms
+MYSQL_PASSWORD=asupersecretpassword
+
+```
+librenms.env
+
+```
+MEMORY_LIMIT=256M
+MAX_INPUT_VARS=1000
+UPLOAD_MAX_SIZE=16M
+OPCACHE_MEM_SIZE=128
+REAL_IP_FROM=0.0.0.0/32
+REAL_IP_HEADER=X-Forwarded-For
+LOG_IP_VAR=remote_addr
+
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+REDIS_HOST=redis
+
+LIBRENMS_SNMP_COMMUNITY=librenmsdocker
+
+LIBRENMS_WEATHERMAP=false
+LIBRENMS_WEATHERMAP_SCHEDULE=*/5 * * * *
+
+PUID=1001
+PGUID=1001
+
+```
+.msmtpd.env
+
+```
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_TLS=on
+SMTP_STARTTLS=on
+SMTP_TLS_CHECKCERT=on
+SMTP_AUTH=on
+SMTP_USER=foo
+SMTP_PASSWORD=bar
+SMTP_FROM=foo@gmail.com
+PUID=1001
+PGID=1001
+
+```
+after that run the compose stack with
+
+> docker compose up -d
+
+Then navigate to http://docker-host-ip:8000 to login and configure librenms.
+
 # Testing & Troubleshooting
 
 
