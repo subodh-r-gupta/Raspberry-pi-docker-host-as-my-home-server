@@ -847,3 +847,5 @@ I would use ansible to automate the server setup as much as possible so that i c
 [setting up qbittorrent in docker container 1](https://github.com/linuxserver/docker-qbittorrent)
 [Setting up qbitorrent in docker conatiner 2](https://pimylifeup.com/docker-qbittorrent/)
 
+[Setting up librenms in docker container 1](https://github.com/librenms/docker/tree/master/examples/compose)
+[Setting up librenms in docker container 2](https://www.packetswitch.co.uk/how-to-install-librenms-as-a-docker-container/)
