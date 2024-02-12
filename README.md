@@ -53,6 +53,7 @@ Yes, I know the for server management a CLI must be used but sometimes a GUI is 
 | zabbix |  for server and network monitoring and alerts  TBD in version 2 of this guide|
 | glances | for a quick view of docker container health |
 | Librenms | for server and network monitoring alerts TBD in version 2 of this guide |
+| ntopng | for real time network monitoring |
 
 This server needs to be monitored 24x7 and i should be able to get alerts when something fails or an attack happens. I would like to compare netdata, zabbix and librenms, so I will configure them all.Once i choose one over other, It will be cleaned up.
 
