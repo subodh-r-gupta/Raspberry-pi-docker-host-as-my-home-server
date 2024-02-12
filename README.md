@@ -967,6 +967,7 @@ I would use ansible to automate the server setup as much as possible so that i c
 [setting up arr stack 2](https://www.rapidseedbox.com/blog/ultimate-guide-to-sonarr)
 [setting up arr stack 3](https://www.rapidseedbox.com/blog/guide-to-radarr)
 [setting up arr stack 4](https://www.rapidseedbox.com/blog/prowlarr-guide)
+[trash guides 5](https://trash-guides.info/)
 
 
 
