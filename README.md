@@ -65,6 +65,9 @@ This server needs to be monitored 24x7 and i should be able to get alerts when s
 | minidlna |  for sharing music and video library to my laptop and tv  |
 | calibre and calibre web |  for sharing comics and books library to my laptop and tv  |
 | photoprism | for sharing photos to my laptop and tv |
+| sonarr | for tv |
+| radarr | for movies |
+| prowlarr | for indexers |
 
 
 In my previous tests on raspberry pi, jellyfin was maxing out CPU usage, So i will have a lighweight alternative as minidlna on docker host to fall back if it happens again.
