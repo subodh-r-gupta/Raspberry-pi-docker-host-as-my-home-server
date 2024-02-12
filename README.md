@@ -108,6 +108,8 @@ I am a cheapskate, I do not want to pay for hosting charges every year.
 - Micro HDMI to HDMI cable
 - External HDD 500 GB
 
+---
+
 ## 2 - Installing Ubuntu Server 2204 LTS on raspberry pi 4
 
 I am using Ubuntu and Red Hat Linux at work on daily basis. 
@@ -141,6 +143,7 @@ after a short while update ubuntu using -
 > sudo apt update
 > sudo apt upgrade.
 ```
+
 ---
 
 ## 3 - Installing docker
@@ -210,7 +213,8 @@ run
 visit https://docker-host-ip:9443 for portainer web gui
 
 ### 4.3 Setup homarr container
-docker compose file -
+
+docker-compose.yml -
 
 ```
 version: '3'
@@ -238,7 +242,7 @@ Then run
 
 navigate to http://docker-host-ip:8082 for web ui
 
-Next up, lets install network wide security services first -
+---
 
 ### 4.4 Setup pihole container
 
@@ -256,6 +260,7 @@ finally I have deployed it as regular docker container but i had to do the follo
 - I think the net side effect would be that if pohole goes down local name resolution might now work on this server anymore.
  
   
+docker-compose.yml
 
 ```
 version: "3"
@@ -314,6 +319,7 @@ reboot the system and then start the pi hole container.
 
 navigate to http://docker-host-ip:8080 for pihole web ui.
 
+---
 
 ### 4.5 setup glances container
 docker compose file -
@@ -344,7 +350,11 @@ then run
 
 navigate to http://docker-host-ip:8081 for glances web ui
 
+---
+
 ### 4.6 Setup nginx proxy manager container
+
+docker-compose.yml
 
 ```
 version: "3"
@@ -381,7 +391,7 @@ visit http://docker-host-ip:81 for a nginx proxy manager admin portal.
 
 filebrowser provides a light weight web ui which i prefer to use for sharing files and folders to home users.
 
-docker compose 
+docker-compose.yml 
 
 ```
 version: '3'
@@ -415,9 +425,11 @@ then start the container -
 
 nagivate to http://docker-host-ip:8085 for the web ui.
 
+---
+
 ### 4.8 setup nextcloud docker container
 
-docker compose file
+docker-compose.yml
 
 ```
 version: '3'
@@ -478,6 +490,8 @@ start the container with
 > docker compose up -d
 
 navigate to http://docker-host-ip:8086 to configure nextcloud using web gui
+
+---
 
 ### 4.9 setup qbittorrent container
 
@@ -580,6 +594,8 @@ Connection to localhost (127.0.0.1) 8083 port [tcp/*] succeeded!
 
 login to web ui using this password at http://docker-host-ip:8083
 Change the password and configure the qbittorrent settings as per your liking.
+
+---
 
 ### 4.10 Setting up librenms container
 
@@ -811,6 +827,7 @@ after that run the compose stack with
 
 Then navigate to http://docker-host-ip:8000 to login and configure librenms.
 
+---
 
 ### 4.11 Setting up arr container stack so that we can sail the high seas with ease...
 
@@ -903,7 +920,7 @@ http://docker-host-ip:7878
 prowlarr
 http://docker-host-ip:9696
 
-
+---
 
 # Testing & Troubleshooting
 
