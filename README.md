@@ -811,9 +811,94 @@ Then navigate to http://docker-host-ip:8000 to login and configure librenms.
 
 ### Setting up arr container stack so that we can sail the high seas with ease...
 
+my arr stack consists of radarr, sonarr and prowlarr for now. Also they reside in a separate virtual network which keeps them isolated from other docker container networks for security reasons.
+
+create a new network
+
+> docker network create arr
+
+then create the following files....
+
+docker-compose.yml
 
 
+```version: '3'
+networks:
+  default:
+    name: arr
+    external: true
 
+services:
+  prowlarr: #indexer manager for Sonarr & Radarr
+    image: ghcr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - ../../storage/arr-data/prowlarr-config:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+
+  radarr: #movie search agent
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - UMASK=022
+    volumes:
+      - ../../storage/arr-data/radarr-config:/config
+      - $MEDIADIR:/media
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  sonarr: #TV show search agent
+    image: ghcr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - UMASK=022
+    volumes:
+      - ../../stroage/arr-data/sonarr-config:/config
+      - $MEDIADIR:/media
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+
+```
+
+.env file
+
+```
+PUID=1001 #change to your user's PUID
+PGID=1001 #change to your user's PGID
+TZ=Europe/Paris #change to your timezone location
+MEDIADIR=../../storage/arr-data/media
+
+```
+
+now run 
+
+> docker compose up -d
+
+navigate to following urls and configure radarr,sonarr and prowlarr one by one.
+
+sonarr
+http://docker-host-ip:8989
+
+radarr
+http://docker-host-ip:7878
+
+prowlarr
+http://docker-host-ip:9696
 
 
 
