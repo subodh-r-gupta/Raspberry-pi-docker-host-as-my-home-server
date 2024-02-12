@@ -322,7 +322,8 @@ navigate to http://docker-host-ip:8080 for pihole web ui.
 ---
 
 ### 4.5 setup glances container
-docker compose file -
+
+docker-compose.yml
 
 ```
 version: '3'
@@ -601,7 +602,7 @@ Change the password and configure the qbittorrent settings as per your liking.
 
 librenms has great documentation and a sample docker compose file on their github repo. Its easy to follow as compared to zabbix.
 
-docker compose file
+docker-compose.yml
 
 ```
 version: '3'
@@ -769,7 +770,7 @@ services:
 ```
 Then create follwing environment files for our compose stack.
 
-.env file
+.env 
 
 ```
 TZ=Europe/Paris
