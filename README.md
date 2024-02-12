@@ -315,7 +315,7 @@ reboot the system and then start the pi hole container.
 navigate to http://docker-host-ip:8080 for pihole web ui.
 
 
-### setup glances container
+### 4.5 setup glances container
 docker compose file -
 
 ```
@@ -344,7 +344,7 @@ then run
 
 navigate to http://docker-host-ip:8081 for glances web ui
 
-### 4.5 Setup nginx proxy manager container
+### 4.6 Setup nginx proxy manager container
 
 ```
 version: "3"
@@ -377,7 +377,7 @@ visit http://docker-host-ip:81 for a nginx proxy manager admin portal.
 
 ---
 
-### 4.6 setup filebrowser container
+### 4.7 setup filebrowser container
 
 filebrowser provides a light weight web ui which i prefer to use for sharing files and folders to home users.
 
@@ -415,7 +415,7 @@ then start the container -
 
 nagivate to http://docker-host-ip:8085 for the web ui.
 
-### 4.7 setup nextcloud docker container
+### 4.8 setup nextcloud docker container
 
 docker compose file
 
@@ -479,7 +479,7 @@ start the container with
 
 navigate to http://docker-host-ip:8086 to configure nextcloud using web gui
 
-### setup qbittorrent container
+### 4.9 setup qbittorrent container
 
 I wanted to use the official qbittorrent-nox image but during the trial run I found that it has sed permission issue on tmp folder, After few hours of googling, I could not find a fix except few hints about changing sed version which uses a different system call. So insted of wasting anymore time, I decided to use linuxserver.io's qbittorrent image.This image just works!
 
@@ -581,7 +581,7 @@ Connection to localhost (127.0.0.1) 8083 port [tcp/*] succeeded!
 login to web ui using this password at http://docker-host-ip:8083
 Change the password and configure the qbittorrent settings as per your liking.
 
-### Setting up librenms
+### 4.10 Setting up librenms container
 
 librenms has great documentation and a sample docker compose file on their github repo. Its easy to follow as compared to zabbix.
 
@@ -812,7 +812,7 @@ after that run the compose stack with
 Then navigate to http://docker-host-ip:8000 to login and configure librenms.
 
 
-### Setting up arr container stack so that we can sail the high seas with ease...
+### 4.11 Setting up arr container stack so that we can sail the high seas with ease...
 
 my arr stack consists of radarr, sonarr and prowlarr for now. Also they reside in a separate virtual network which keeps them isolated from other docker container networks for security reasons.
 
