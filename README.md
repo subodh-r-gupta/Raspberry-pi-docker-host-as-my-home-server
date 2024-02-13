@@ -923,6 +923,72 @@ http://docker-host-ip:9696
 
 ---
 
+### 4.12 setting up wordpres container
+create the docker compose file.
+
+docker-compose.yml
+``version: '3'
+---
+services:
+
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    ports:
+      - 8090:80
+    environment:
+      WORDPRESS_DB_HOST: wpdb
+      WORDPRESS_DB_USER: $WP_DB_USER
+      WORDPRESS_DB_PASSWORD: $WP_DB_PASSWORD
+      WORDPRESS_DB_NAME: $WP_DB_NAME
+      PUID: $UID
+      PGID: $GID
+    volumes:
+      - '../../storage/wordpress-data/wp-web:/var/www/html'
+
+  wpdb:
+    image: mysql:8.0
+    container_name: wpdb
+    restart: always
+    environment:
+      MYSQL_DATABASE: $WP_DB_NAME
+      MYSQL_USER: $WP_DB_USER
+      MYSQL_PASSWORD: $WP_DB_PASSWORD
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      PUID: $UID
+      GID: $GID
+    volumes:
+      - '../../storage/wordpress-data/wp-db:/var/lib/mysql'
+
+
+
+```
+create the .env file.
+
+.env
+```
+WP_DB_HOST=db
+WP_DB_USER=wpdbuser
+WP_DB_PASSWORD=changeme
+WP_DB_NAME=mywpdb
+SQL_DATABASE=mywpdb
+SQL_USER=wpdbuser
+SQL_PASSWORD=changeme
+UID=1001
+GID=1001
+
+
+```
+
+get the container up and running
+
+> docker-compose up -d
+
+wait for few secords for db to come up and then navigate to http://docker-host-ip:8090 to configure wordpress.
+
+---
+
 # Testing & Troubleshooting
 
 
