@@ -927,7 +927,8 @@ http://docker-host-ip:9696
 create the docker compose file.
 
 docker-compose.yml
-``version: '3'
+
+```version: '3'
 ---
 services:
 
@@ -967,6 +968,7 @@ services:
 create the .env file.
 
 .env
+
 ```
 WP_DB_HOST=db
 WP_DB_USER=wpdbuser
