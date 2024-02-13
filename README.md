@@ -1039,3 +1039,5 @@ I would use ansible to automate the server setup as much as possible so that i c
 
 [Setting up librenms in docker container 1](https://github.com/librenms/docker/tree/master/examples/compose)
 [Setting up librenms in docker container 2](https://www.packetswitch.co.uk/how-to-install-librenms-as-a-docker-container/)
+
+[Setting up wordpress in docker container](https://hub.docker.com/_/wordpress)
