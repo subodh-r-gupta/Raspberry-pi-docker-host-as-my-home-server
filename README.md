@@ -999,7 +999,7 @@ wait for few secords for db to come up and then navigate to http://docker-host-i
 
 # Automating the server setup
 I would use ansible to automate the server setup as much as possible so that i can re-build it easily.
-
+This will be another article, coming soon!
 ---
 
 # REFERENCES ---
