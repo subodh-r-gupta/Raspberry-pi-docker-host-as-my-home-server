@@ -1,4 +1,4 @@
-# My home lab on Raspberry pi 4
+# My home lab on Raspberry pi 4 with docker and ubuntu
 
 
 I got a new raspberry pi 4 and I want to build a low cost and low power consuming home server on it. 
